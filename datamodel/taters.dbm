@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+ Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="1.0.2" use-changelog="false" last-position="0,0" last-zoom="1" max-obj-count="4"
+	 default-schema="public" default-owner="postgres"
+	 layers="Default layer"
+	 active-layers="0"
+	 layer-name-colors="#000000"
+	 layer-rect-colors="#b4b4b4"
+	 show-layer-names="false" show-layer-rects="false">
+<role name="pg_database_owner"
+ inherit="true"
+ password="********"
+ sql-disabled="true">
+</role>
+
+<role name="urist"
+ superuser="true"
+ createdb="true"
+ createrole="true"
+ inherit="true"
+ login="true"
+ password="********">
+</role>
+
+<role name="potatoe"
+ inherit="true"
+ login="true"
+ password="********">
+</role>
+
+<database name="potatoesDB" encoding="UTF8" lc-collate="en_CA.utf8" lc-ctype="en_CA.utf8" is-template="false" allow-conns="true">
+	<role name="urist"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" layers="0" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<sequence name="tatertable_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+	<schema name="public"/>
+	<role name="urist"/>
+</sequence>
+
+<table name="tatertable" layers="0" collapse-mode="2" max-obj-count="19" z-value="0">
+	<schema name="public"/>
+	<role name="urist"/>
+	<position x="60" y="60"/>
+	<column name="id" not-null="true" sequence="public.tatertable_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="refdate" not-null="true">
+		<type name="character varying" length="11"/>
+	</column>
+	<column name="geo" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="dguid" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="areaproductionvalue" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="uom" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="uomid" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="scalarfactor" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="scalarid" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="vector" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="coordinate" not-null="true">
+		<type name="real" length="0"/>
+	</column>
+	<column name="value">
+		<type name="numeric" length="0"/>
+	</column>
+	<column name="status">
+		<type name="text" length="0"/>
+	</column>
+	<column name="symbol">
+		<type name="text" length="0"/>
+	</column>
+	<column name="terminated">
+		<type name="text" length="0"/>
+	</column>
+	<column name="decimals">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="tatertable_pkey" type="pk-constr" table="public.tatertable">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<permission>
+	<object name="public" type="schema"/>
+	<roles names="pg_database_owner"/>
+	<privileges create="true" usage="true"/>
+</permission>
+<permission>
+	<object name="public" type="schema"/>
+	<privileges usage="true"/>
+</permission>
+</dbmodel>
