@@ -30,14 +30,13 @@
  * 
  * 	Some APIs may differ from this.
  */
-  //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
   
 #include "PotatoesDB.h"
 
 /**
  * Constructor, opens database connection and sets up a fresh table.
  * @param file_location dataset location
- *///std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+ */
 PotatoesDB::PotatoesDB(std::string file_location)  {
 	
 	this->datadoc = rapidcsv::Document(file_location);
@@ -65,7 +64,7 @@ PotatoesDB::PotatoesDB(std::string file_location)  {
 
 /**
  * (re)creates dataset table
- *///std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+ */
 void PotatoesDB::initDb()  {
 	
 	std::cout << "initializing database" << std::endl;
@@ -121,7 +120,7 @@ void PotatoesDB::initDb()  {
 	catch (const std::exception &e)  {
 		std::cout << e.what() << std::endl;
 		throw(e);
-	}//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+	}
 	
 	//table owner
 	try  {
@@ -341,7 +340,7 @@ void PotatoesDB::initData()  {
 /**
  * Displays a list of 100 records, depending on cursor location.
  * @return a vector of DTOs
- *///std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+ */
 std::vector<PotatoesDTO*> PotatoesDB::getCurrentData()  {
 	
 	this->dtoList.clear();
@@ -365,7 +364,6 @@ std::vector<PotatoesDTO*> PotatoesDB::getCurrentData()  {
 	pqxx::nontransaction sel(dbConnection); 
 	pqxx::result current_data( sel.exec(select.c_str()) );
 	
-	//std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
 	
 	std::cout << "records from db: " << current_data.size() << std::endl;
 	
@@ -383,7 +381,7 @@ std::vector<PotatoesDTO*> PotatoesDB::getCurrentData()  {
 		tater->setScalarFactor( row[6].as<std::string>() );
 		tater->setScalarId( row[7].as<std::string>() );
 		tater->setVector( row[8].as<std::string>() );
-		tater->setCoordinate( row[9].as<double>() );//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+		tater->setCoordinate( row[9].as<double>() );
 		//Value is the only converted field that can be empty, which stod does not like.
 		try  {
 			tater->setValue( row[10].as<double>() );
@@ -396,7 +394,6 @@ std::vector<PotatoesDTO*> PotatoesDB::getCurrentData()  {
 		tater->setTerminated( row[13].as<std::string>() );
 		tater->setDecimals( row[14].as<double>() );
 		
-		//std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
 		
 		this->addDTO(tater);
 	}
@@ -407,7 +404,7 @@ std::vector<PotatoesDTO*> PotatoesDB::getCurrentData()  {
 /**
  * Get a single record from the list
  * @return record DTO
- *///std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+ */
 PotatoesDTO* PotatoesDB::getRecord(int index)  {
 	return this->dtoList[index - 1];
 }
@@ -415,7 +412,7 @@ PotatoesDTO* PotatoesDB::getRecord(int index)  {
 /**
  * Add a record to the table
  * @param tater record DTO to add
- *///std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+ */
 void PotatoesDB::addRecord(PotatoesDTO* tater)  {
 	
 	//this is so much better than it was. 
@@ -454,7 +451,7 @@ void PotatoesDB::addRecord(PotatoesDTO* tater)  {
 /**
  * Remove a record from the table
  * @param index of the record in the LIST to delete from the TABLE
- *///std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+ */
 void PotatoesDB::deleteRecord(int index)  {
 	
 	//get the values for the compound key
@@ -481,7 +478,7 @@ void PotatoesDB::deleteRecord(int index)  {
 
 /**
  * Advance through the dataset by 100 records.
- *///std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+ */
 void PotatoesDB::nextSet()  {
 	if(this->recordCursor + 100 > this->recordCount)  {
 		this->recordCursor += this->recordCount - this->recordCursor;
@@ -493,7 +490,7 @@ void PotatoesDB::nextSet()  {
 
 /** 
  * backtrack through the dataset by 100 records.
- *///std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+ */
 void PotatoesDB::previousSet()  {
 	if(this->recordCursor - 100 < 1)  {
 		this->recordCursor = 1;
@@ -507,7 +504,7 @@ void PotatoesDB::previousSet()  {
 /**
  * Add a DTO to the list
  * @param potatoe DTO to add
- */ //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+ */ 
 void PotatoesDB::addDTO(PotatoesDTO* tater)  {
 	this->dtoList.push_back(tater);
 }
@@ -515,7 +512,7 @@ void PotatoesDB::addDTO(PotatoesDTO* tater)  {
 /**
  * Get the record count.
  * @return record count
- *///std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+ */
 int PotatoesDB::datasetCount()  {
 	
 	pqxx::nontransaction data(dbConnection);
@@ -525,7 +522,7 @@ int PotatoesDB::datasetCount()  {
 
 /**
  * Undo all changes.
- *///std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+ */
 void PotatoesDB::clearModified()  {
 	
 	//Delete all rows that were added to the set
@@ -562,7 +559,6 @@ void PotatoesDB::changeSorting(std::string order)  {
  */
 void PotatoesDB::search(std::map<std::string, std::string> column_search)  {
 	
-	//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
 	//stop sorting?
 	if( column_search.empty() )  {
 		this->searchTerm = "";

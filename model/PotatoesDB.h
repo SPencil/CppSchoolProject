@@ -30,7 +30,6 @@
  * 
  * 	Some APIs may differ from this.
  */
-  //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
 
    
 #ifndef POTATOES_DB_HEAD
@@ -47,7 +46,7 @@
 /**
  * Dataclass for using a database to access and manipulate the dataset.
  * function documentation is in the corresponding cpp file.
- *///std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+ */
 class PotatoesDB : public PotatoesDataClass{
 	
 	private:
@@ -80,7 +79,6 @@ class PotatoesDB : public PotatoesDataClass{
 		void clearModified() override;
 		void changeSorting(std::string order) override;
 		void search(std::map<std::string, std::string> column_search) override;
-		//std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
 };
 
 #endif

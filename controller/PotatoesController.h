@@ -30,18 +30,18 @@
  * 
  * 	Some APIs may differ from this.
  */
-  //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
- #ifndef POTATOES_CONTROLLER_HEAD
- #define POTATOES_CONTROLLER_HEAD
+
+#ifndef POTATOES_CONTROLLER_HEAD
+#define POTATOES_CONTROLLER_HEAD
  
- #include <string>
- #include <map>
+#include <string>
+#include <map>
  
- #include "../view/PotatoesView.h"
- #include "../model/PotatoesModel.h"
- #include "../model/PotatoesDTO.h"
+#include "../view/PotatoesView.h"
+#include "../model/PotatoesModel.h"
+#include "../model/PotatoesDTO.h"
  
- #define LINEMAX 256
+#define LINEMAX 256
  
 class PotatoesController  {
 	 
@@ -50,7 +50,7 @@ class PotatoesController  {
 		PotatoesModel* model; //reference to the model
 		
 		bool keepAlive = true; //solve the halting problem.
-		std::string dataFile;
+		std::string dataFile; //target csv file
 	 
 	public:
 		/**
@@ -63,13 +63,16 @@ class PotatoesController  {
 		 * Check if we should halt
 		 */
 		bool isAlive();
-		//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+
 		/**
 		 * Select which function to run based on user input
 		 * @param user input
 		 */
 		void parseInput(std::string input);
 		
+		/**
+		 * Switch using db or csv
+		 */
 		void switchDataset();
 		
 		/**
@@ -82,8 +85,6 @@ class PotatoesController  {
 		 */
 		void displayRecord();
 		
-		 //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
-		 
 		/**
 		 * Add a record to the dataset
 		 */
@@ -93,7 +94,7 @@ class PotatoesController  {
 		 * Delete a record from the dataset
 		 */
 		void deleteRecord();
-		//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+
 		/**
 		 * Clear all changes to the dataset
 		 */
@@ -108,11 +109,16 @@ class PotatoesController  {
 		 * scroll backwards through the dataset
 		 */
 		void previousSet();
-	 //Cameron Wass, 040-626-741, wass0010@algonquinlive.com
-	 
+	 	
+	 	/**
+	 	 * Change how the table is sorted
+	 	 */
 		void changeSorting();
 		
+		/**
+		 * Search for data!
+		 */
 		void search();
- };
+};
  
- #endif
+#endif

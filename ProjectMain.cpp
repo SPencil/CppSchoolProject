@@ -44,19 +44,20 @@
 //#include "../libraries/rapidcsv/src/rapidcsv.h"
 
 
-/** Cameron Wass, 040-626-741, wass0010@algonquinlive.com
- * Project main function
- */
 int main (int argc, char* argv[])  {
 	
 	//All the main is used for is creating the controller, and  passing input.
-	//A halting flag is set when it's ready to die. 
+	//A halting flag is set when it's ready to exit
 	
+	//TODO: Automatically try the database first
+		//PotatoeDB class? Passed by reference to controller
+
 	std::cout << "Use database? (y/n)" << std::endl;
 	std::string db;
 	std::cin >> db;
-	
-	
+
+	//TODO: try-catch
+
 	PotatoesController* controller; 
 	if(db == "y")  {
 		controller = new PotatoesController("./data/32100358.csv", true);
@@ -69,6 +70,8 @@ int main (int argc, char* argv[])  {
 		controller = new PotatoesController("./data/32100358.csv", false);
 	}
 	
+
+	//Main program loop, just keeps feeding input to the controller until it's ready to exit
 	while(controller->isAlive() == true) {
 		
 		//TODO: refactor to use std::get_line, so that parameters can be passed.
@@ -79,6 +82,6 @@ int main (int argc, char* argv[])  {
 		input = "";
 
 	}
-	//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+
 	return 0;
 }

@@ -30,20 +30,20 @@
  * 
  * 	Some APIs may differ from this.
  */
-  //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
- #ifndef DTO_LIST_HEAD
- #define DTO_LIST_HEAD
+
+#ifndef DTO_LIST_HEAD
+#define DTO_LIST_HEAD
  
- #include <iostream>
- #include <fstream>
- #include <vector>
- #include "PotatoesDTO.h"
- #include <string.h>
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include "PotatoesDTO.h"
+#include <string.h>
  
 #include "../libraries/rapidcsv/src/rapidcsv.h"
 #include "./PotatoesDataClass.h"
  
- class DTOList : public PotatoesDataClass {
+class DTOList : public PotatoesDataClass {
 	
 	private:
 		rapidcsv::Document datadoc; //Dataset file
@@ -56,14 +56,14 @@
 		int recordCursor; //current position in the dataset.
 		std::string dtoHeader; //dataset header
 		bool start_modified; //whether to initialize with the original or modified dataset
-		 //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+
 		 
 		/**
 		 * initialize / reset the record list
 		 */
 		void initDataset();
 	 
-	 public:
+	public:
 	 
 		/**
 		 * Constructor
@@ -82,7 +82,7 @@
 		 * @return a vector containing references to record DTOs
 		 */
 		std::vector<PotatoesDTO*> getCurrentData() override;
-		//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+
 		/**
 		 * Get a single record from the table
 		 * @param index index / row of record
@@ -100,7 +100,7 @@
 		 * @param tater a reference to a record dto
 		 */
 		void addRecord(PotatoesDTO* tater) override;
-		//std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+
 		/**
 		 * Remove a record from the dataset given an index relative to the current list
 		 * @param index index / row of record to remove
@@ -111,7 +111,7 @@
 		 * Advances the table through the dataset
 		 */
 		void nextSet() override;
-		//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+
 		/**
 		 * Scrolls backwards through the dataset
 		 */
@@ -122,19 +122,11 @@
 		 * @param tater record to add to the table
 		 */
 		void addDTO(PotatoesDTO* tater) override;
-		
-		/**
-		 * Creates a record dto given a line of data
-		 * @param line data to turn into a record dto
-		 * @return reference to a record dto
-		 */
-		//PotatoesDTO* createDTO( char line[LINEMAX] );
-		 //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
 		 
 		void changeSorting(std::string order) override;
 		
 		void search(std::map<std::string, std::string> column_search) override;
- };
+};
  
  
- #endif
+#endif

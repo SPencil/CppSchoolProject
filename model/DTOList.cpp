@@ -33,7 +33,6 @@
  
 #include "DTOList.h"
  
- //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
 ////////////////
 //DTO operations
 
@@ -65,7 +64,7 @@ DTOList::DTOList(std::string file_location)  {
 	catch(const std::ios_base::failure& oops)  {
 		exists = false;
 	}
-	 //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+
 	if(!exists)  {
 		std::cout << "no modified set detected, creating one." << std::endl;
 		this->start_modified = false;
@@ -90,7 +89,7 @@ DTOList::DTOList(std::string file_location)  {
 	
 }
 
- //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+
  
 /**
 * Get all data from the list
@@ -135,7 +134,7 @@ void DTOList::clearModified()  {
 	this->initDataset();
 	
 }
- //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+
 /**
 * Add a record to the dataset
 * @param tater a reference to a record dto
@@ -164,7 +163,7 @@ void DTOList::addRecord(PotatoesDTO* tater)  {
 	this->initDataset();
 	
 }
- //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+
 /**
 * Remove a record from the dataset given an index relative to the current list
 * @param index index / row of record to remove
@@ -183,107 +182,6 @@ void DTOList::deleteRecord(int index)  {
 }
 
 /**
-* Creates a record dto given a line of data
-* @param line data to turn into a record dto
-* @return reference to a record dto
-*///std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
-/*
-PotatoesDTO* DTOList::createDTO( char line[LINEMAX] )  {
-	//the string looks like "","","","" 
-	
-	PotatoesDTO* tater = new PotatoesDTO();
-	
-	std::string columns[15];
-	int current_column = 0;
-	bool extract_char = false;
-	
-	//Parsing the line data into an array of data that can be passed into the dto
-	//Unfortunately, the original dataset has all values in quotes and the API doesn't save
-	//values with surrounding quotes unless they have a space or a comma, so both need to be handled.
-	
-	//all values in quotes, all lines start with a " //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
-	if(line[0] == '"')  {
-		for(int i = 0; i <= (int)strlen(line); i++)  {
-			if(line[i] == '\0')  { break; }
-			
-			//flip between extracting characters or moving along
-			if(line[i] == '"')  {
-				if(extract_char == false)  {
-					extract_char = true;
-					continue;
-				}
-				else  {
-					extract_char = false;
-					current_column++;
-					continue;
-				}
-			}
-			//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
-			//while between quotes, push the character into it's respective string.
-			if(extract_char == true)  {
-				columns[current_column].push_back(line[i]);
-				continue;
-			}
-			
-		} //for
-	}
-	//not all values in quotes.
-	else  {
-		bool inner_quote = false; //reading between quotes?
-		for(int i = 0; i <= (int)strlen(line); i++)  {
-			if(line[i] == '\0')  { break; }
-			
-			//are we reading a inside a quoted value
-			if(line[i] == '"' && inner_quote == false)  { 
-				inner_quote = true;
-				continue;
-			}
-			if(line[i] == '"' && inner_quote == true)  { 
-				inner_quote = false;
-				continue; //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
-			}
-			
-			//is this comma inside a quoted value
-			if(line[i] == ',' && inner_quote == false)  {
-				//std::cout << columns[current_column] << std::endl;
-				current_column++;
-				continue;
-			}
-			
-			columns[current_column].push_back(line[i]);
-			continue;
-			
-			 //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
-		}
-	}
-	
-	//set the values in the dto
-	tater->setRefDate( std::stoi(columns[0]) );
-	tater->setGeo( columns[1] );
-	tater->setDguid( columns[2] );
-	tater->setAreaProductionValue( columns[3] );
-	tater->setUom( columns[4] );
-	tater->setUomId( columns[5] );
-	tater->setScalarFactor( columns[6] );
-	tater->setScalarId( columns[7] );
-	tater->setVector( columns[8] );
-	tater->setCoordinate( std::stod(columns[9]) );//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
-	//Value is the only converted field that can be empty, which stod does not like.
-	try  {
-		tater->setValue( std::stod(columns[10]) );
-	}
-	catch(const std::invalid_argument& oops)  {
-		tater->setValue( 0.0 );
-	} //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
-	tater->setStatus( columns[11] );
-	tater->setSymbol( columns[12] );
-	tater->setTerminated( columns[13] );
-	tater->setDecimals( std::stoi(columns[14]) );
-	
-	return tater;
-}
-*/
-/**
 * Add a record dto to the table
 * @param tater record to add to the table
 */
@@ -299,7 +197,7 @@ void DTOList::addDTO(PotatoesDTO* tater)  {
 * initialize / reset the record list
 */
 void DTOList::initDataset()  {
-	//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+
 	//reset everything
 	this->recordCount = this->datasetCount();
 	this->recordCursor = 0;
@@ -311,7 +209,7 @@ void DTOList::initDataset()  {
 	}
 	catch(const std::ios_base::failure& oops)  {
 		throw(oops);
-	} //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+	} 
 	
 	//iterate through the stream line by line and create their dtos, but
 	//only 100 times.
@@ -362,12 +260,12 @@ int DTOList::datasetCount()  {
 	catch(const std::ios_base::failure& oops)  {
 		throw(oops);
 	}
-	//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+
 	//rip through the input stream, counting the lines. 
 	int count = 0;
 	char dump[LINEMAX];
 	this->fileStream.getline(dump, LINEMAX); //ignore the header
-	 //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+
 	while( !this->fileStream.eof() )  {
 		this->fileStream.getline(dump, LINEMAX);
 		//ignore garbage.
@@ -379,7 +277,7 @@ int DTOList::datasetCount()  {
 	this->fileStream.close();
 	return count;
 }
-//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+
 /**
 * Advances the table through the dataset
 */
@@ -402,7 +300,7 @@ void DTOList::nextSet() {
 		this->fileStream.getline(dump, LINEMAX);
 		cursor++;
 	}
- //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+
 	this->dtoList.clear();
 
 	//read the next 100 records into the list.
@@ -419,7 +317,7 @@ void DTOList::nextSet() {
 
 	this->fileStream.close();
 }
- //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+
 /**
 * Scrolls backwards through the dataset
 */
@@ -449,7 +347,7 @@ void DTOList::previousSet() {
 		this->fileStream.getline(dump, LINEMAX);
 		cursor++;
 	}
-	 //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+
 	this->dtoList.clear();
 	
 	//read the next 100 records into the list
@@ -464,7 +362,7 @@ void DTOList::previousSet() {
 	}
 	this->recordCursor = cursor;
 
-	this->fileStream.close();//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+	this->fileStream.close();
 }
 
 void DTOList::changeSorting(std::string order)  {

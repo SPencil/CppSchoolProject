@@ -31,10 +31,8 @@
  * 	Some APIs may differ from this.
  */
  
- //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
- 
- #ifndef PROJECT_MAIN_HEAD
- #define PROJECT_MAIN_HEAD
+#ifndef PROJECT_MAIN_HEAD
+#define PROJECT_MAIN_HEAD
  
 #include <iostream>
 #include <vector>
@@ -45,5 +43,3 @@
 #include "model/DTOList.h"
  
 #endif
-
-//Cameron Wass, 040-626-741, wass0010@algonquinlive.com

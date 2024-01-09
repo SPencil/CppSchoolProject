@@ -30,7 +30,7 @@
  * 
  * 	Some APIs may differ from this.
  */
-  //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+
  #include "PotatoesView.h"
  
 /**
@@ -61,7 +61,7 @@ void PotatoesView::displayData( std::vector<PotatoesDTO*> data_list )  {
 	int i = 1; //just for a line count
 	this->displayHeader();
 	for( PotatoesDTO* tater : data_list )  {
-		//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+
 		//if(i > 30)  { break; } //useful for header "debugging"
 		std::printf( "|%-4d", i );
 		std::printf( "|%-7d", tater->getRefDate() );
@@ -80,12 +80,6 @@ void PotatoesView::displayData( std::vector<PotatoesDTO*> data_list )  {
 		std::printf( "|%-10s", tater->getTerminated().c_str() );
 		std::printf( "|%-8d|", tater->getDecimals() );
 		std::cout << std::endl;
-		
-		//guarentees I'm in every screenshot of the output
-		if(i % 25 == 0)  {
-			std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
-			displayHeader();
-		}
 		
 		i++;
 		
@@ -116,5 +110,4 @@ void PotatoesView::select(PotatoesDTO* tater, int index)  {
 	std::printf( "|%-10s", tater->getTerminated().c_str() );
 	std::printf( "|%-8d|", tater->getDecimals() );
 	std::cout << std::endl;
-	std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
 }

@@ -33,7 +33,6 @@
 
 #include "PotatoesModel.h"
 
- //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
  
 /**
 * Constructor
@@ -83,7 +82,7 @@ std::vector<PotatoesDTO*> PotatoesModel::getCurrentData()  {
 PotatoesDTO* PotatoesModel::getRecord(int index)  {
 	return this->dataset->getRecord(index);
 }
-//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+
 /**
 * Add a record to the dataset
 * @param tater record dto
@@ -91,7 +90,7 @@ PotatoesDTO* PotatoesModel::getRecord(int index)  {
 void PotatoesModel::addRecord(PotatoesDTO* tater)  {
 	this->dataset->addRecord(tater);
 }
-//std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+
 /**
 * Remove a record from the dataset
 * @param index index / row number of the record
@@ -99,14 +98,14 @@ void PotatoesModel::addRecord(PotatoesDTO* tater)  {
 void PotatoesModel::deleteRecord(int index)  {
 	this->dataset->deleteRecord(index);
 }
-//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+
 /**
 * Completely reset the modified dataset with the original
 */
 void PotatoesModel::clearModified()  {
 	this->dataset->clearModified();
 }
- //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+
 
 /**
 * Advances the current table buffer through the dataset
@@ -114,7 +113,7 @@ void PotatoesModel::clearModified()  {
 void PotatoesModel::nextSet() {
 	this->dataset->nextSet();
 }
-//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+
 /**
 * Loads previous data from the dataset into the table buffer
 */
@@ -130,7 +129,7 @@ void PotatoesModel::previousSet() {
 PotatoesDTO* PotatoesModel::createDTO(char line[LINEMAX])  {
 	return this->dataset->createDTO(line);
 }
-//std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+
 
 void PotatoesModel::changeSorting(std::string order)  {
 	this->dataset->changeSorting(order);

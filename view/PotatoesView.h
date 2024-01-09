@@ -30,16 +30,16 @@
  * 
  * 	Some APIs may differ from this.
  */
-  //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
- #ifndef POTATOES_VIEW_HEAD
- #define POTATOES_VIEW HEAD
+
+#ifndef POTATOES_VIEW_HEAD
+#define POTATOES_VIEW HEAD
  
- #include <iostream>
- #include <string>
- #include <vector>
- #include "../model/PotatoesDTO.h"
+#include <iostream>
+#include <string>
+#include <vector>
+#include "../model/PotatoesDTO.h"
  
- class PotatoesView  {
+class PotatoesView  {
 	
 	private:
 	
@@ -65,7 +65,7 @@
 		 * Display a single record
 		 */
 		void select(PotatoesDTO* tater, int index);
-	 //Cameron Wass, 040-626-741, wass0010@algonquinlive.com
- };
+
+};
  
  #endif

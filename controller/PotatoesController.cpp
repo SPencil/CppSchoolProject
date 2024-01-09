@@ -30,7 +30,7 @@
  * 
  * 	Some APIs may differ from this.
  */
-  //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+
 #include "PotatoesController.h"
  
 /**
@@ -52,8 +52,6 @@ bool PotatoesController::isAlive()  {
 	return this->keepAlive;
 }
  
-  //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
-
 /**
 * Select which function to run based on user input
 * @param user input
@@ -91,7 +89,7 @@ void PotatoesController::parseInput(std::string input)  {
 	if(input == "delete")  {
 		this->deleteRecord();
 		return;
-	} //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+	} 
 	if(input == "switch")  {
 		this->switchDataset();
 		return;
@@ -110,6 +108,9 @@ void PotatoesController::parseInput(std::string input)  {
 
 }
 
+/**
+ * Switches between reading and modifying the dataset using the database or the csv file
+ */
 void PotatoesController::switchDataset()  {
 	
 	this->model->usingDb() ? std::cout << "switching to csv" << std::endl : std::cout << "switching to database" << std::endl;
@@ -120,15 +121,15 @@ void PotatoesController::switchDataset()  {
 /**
 * Displays all data in the list
 */
- void PotatoesController::displayCurrentData()  {
+void PotatoesController::displayCurrentData()  {
 	 this->view->displayData( this->model->getCurrentData() );
 	 this->view->displayCommands();
  }
 
 /**
 * Display one record from the list
-*///Cameron Wass, 040-626-741, wass0010@algonquinlive.com
- void PotatoesController::displayRecord()  {
+*/
+void PotatoesController::displayRecord()  {
 	 
 	 std::cout << "which record number: ";
 	 int index;
@@ -143,14 +144,14 @@ void PotatoesController::switchDataset()  {
 	 this->view->displayCommands();
  }
  
-  //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
-  
 /**
 * Add a record to the dataset
 */
 void PotatoesController::addRecord()  {
 	 
 	PotatoesDTO* tater = new PotatoesDTO();
+
+	//TODO: This is gross. Needs to be refactored
 	
 	std::cout << "RefDate: ";
 	int ref_date;
@@ -181,7 +182,7 @@ void PotatoesController::addRecord()  {
 	std::string uomid;
 	std::cin >> uomid;
 	tater->setUomId(uomid);
-	 //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+
 	std::cout << "ScalarFactor: ";
 	std::string sf;
 	std::cin >> sf;
@@ -211,7 +212,7 @@ void PotatoesController::addRecord()  {
 	std::string stat;
 	std::cin >> stat;
 	tater->setStatus(stat);
-	 //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+
 	std::cout << "Symbol: ";
 	std::string sym;
 	std::cin >> sym;
@@ -233,6 +234,7 @@ void PotatoesController::addRecord()  {
 	this->view->displayCommands();
 	 
 }
+
 /**
 * Delete a record from the dataset
 */
@@ -245,7 +247,7 @@ void PotatoesController::deleteRecord()  {
 		this->view->displayCommands();
 		return;
 	}
-	  //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+
 	this->model->deleteRecord(index);
 	std::cout << "record deleted" << std::endl;
 	this->view->displayCommands();
@@ -254,18 +256,17 @@ void PotatoesController::deleteRecord()  {
 /**
 * Clear all changes to the dataset
 */
- void PotatoesController::clearModified()  {
+void PotatoesController::clearModified()  {
 	 this->model->clearModified();
 	 std::cout << "all changes reverted." << std::endl;
 	 this->view->displayCommands();
  }
- 
-  //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+
   
 /**
 * Advance the table through the dataset
 */
- void PotatoesController::nextSet()  {
+void PotatoesController::nextSet()  {
 	 this->model->nextSet();
 	 this->view->displayData( this->model->getCurrentData() );
 	 this->view->displayCommands();
@@ -277,7 +278,7 @@ void PotatoesController::deleteRecord()  {
 void PotatoesController::previousSet()  {
 	this->model->previousSet();
 	this->view->displayData(this->model->getCurrentData());
-	this->view->displayCommands();//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+	this->view->displayCommands();
 }
 
 /**
@@ -287,6 +288,8 @@ void PotatoesController::changeSorting()  {
 	
 	std::cout << "Enter new columns to sort by, enter 'done' when done." << std::endl << ":";
 	
+	//TODO: fragile, refactor
+
 	std::string order = "";
 	std::string input = "";
 	std::cin >> input;
@@ -297,7 +300,6 @@ void PotatoesController::changeSorting()  {
 	}
 	order.erase( order.size()-2 ); //get rid of the comma-space
 	
-	//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
 	
 	this->model->changeSorting(order);
 	this->view->displayData( this->model->getCurrentData() );
@@ -308,6 +310,8 @@ void PotatoesController::changeSorting()  {
  * Create the hashmap full of columns and search terms to hand to the model
  */
 void PotatoesController::search()  {
+
+	//TODO: This isn't really clear, and I feel like I need something to wrap the cin and cout calls
 	
 	std::string column;
 	std::string search;
@@ -327,8 +331,7 @@ void PotatoesController::search()  {
 		std::cin >> column;
 	}
 	
-	//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
-	
+
 	this->model->search(column_search);
 	this->view->displayData( this->model->getCurrentData() );
 	this->view->displayCommands();

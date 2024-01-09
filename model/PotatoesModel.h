@@ -31,8 +31,7 @@
  * 
  * 	Some APIs may differ from this.
  */
-  //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
-  
+
 #ifndef POTATOES_MODEL_HEAD
 #define POTATOES_MODEL_HEAD
  
@@ -56,7 +55,6 @@
 class PotatoesModel  {
 	 
 	private:
-		//std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
 		PotatoesDataClass* dataset;
 		
 		bool usingDbb;
@@ -64,7 +62,7 @@ class PotatoesModel  {
 		//DTOList* dtoList; //Reference to the object responsible for the record list
 	 
 	public:
-	//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+
 		/**
 		 * Constructor
 		 * @param dataset_location The path to the dataset file
@@ -72,9 +70,10 @@ class PotatoesModel  {
 		PotatoesModel(std::string dataset_location, bool use_database);
 		
 		/**
-		 * 
+		 * Is the model currently using the db or csv?
 		 */
 		bool usingDb();
+
 		/**
 		 * Gets all the data in the table
 		 * @return vector containing all rows in the table
@@ -88,14 +87,13 @@ class PotatoesModel  {
 		 */
 		PotatoesDTO* getRecord(int index);
 		
-		//std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
 		
 		/**
 		 * Add a record to the dataset
 		 * @param tater record dto
 		 */
 		void addRecord(PotatoesDTO* tater);
-		//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+
 		/**
 		 * Remove a record from the dataset
 		 * @param index index / row number of the record
@@ -111,13 +109,12 @@ class PotatoesModel  {
 		 * Advances the current table buffer through the dataset
 		 */
 		void nextSet();
-		//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+
 		/**
 		 * Loads previous data from the dataset into the table buffer
 		 */
 		void previousSet();
 		
-		 //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
 		 
 		/**
 		 * Creates a record DTO from a line with the full record data.
@@ -125,6 +122,7 @@ class PotatoesModel  {
 		 * @param line the full record data, comma separated.
 		 */
 		PotatoesDTO* createDTO(char line[LINEMAX]);
+		
 		
 		void changeSorting(std::string order);
 		

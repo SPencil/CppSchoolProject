@@ -36,10 +36,6 @@
  
  #include <string>
  
- /**
- * This class represents a row within the 'area, production and farm value of potatoes' dataset.
- * Author: Cameron Wass, 040-626-741, wass0010@algonquinlive.com
- */
  class PotatoesDTO  {
 	
 	private:
@@ -76,7 +72,7 @@
 		
 		std::string getDguid();
 		void setDguid(std::string dguid);
-		//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+
 		std::string getAreaProductionValue();
 		void setAreaProductionValue(std::string area_production_value);
 		
@@ -109,7 +105,7 @@
 		
 		std::string getTerminated();
 		void setTerminated(std::string terminated);
-		//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+
 		int getDecimals();
 		void setDecimals(int decimals);
  };

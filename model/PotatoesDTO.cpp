@@ -33,8 +33,6 @@
  
 #include "PotatoesDTO.h"
 
-//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
-
 /**
  * Get the data point date
  */
@@ -61,7 +59,6 @@ void PotatoesDTO::setGeo(std::string geo)  {
 	this->geo = geo;
 }
 
-//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
 
 /**
  * Get the DGUID
@@ -102,8 +99,6 @@ void PotatoesDTO::setUom(std::string uom)  {
 	this->Uom = uom;
 }
 
-//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
-
 /**
  * Get UOMID
  */
@@ -143,8 +138,6 @@ void PotatoesDTO::setScalarId(std::string scalar_id)  {
 	this->scalarId = scalar_id;
 }
 
-//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
-
 /**
  * Get the vector
  */
@@ -158,7 +151,6 @@ void PotatoesDTO::setVector(std::string vector)  {
 	this->vector = vector;
 }
 
-//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
 
 /**
  * Get coordinates
@@ -186,7 +178,6 @@ void PotatoesDTO::setValue(double value)  {
 	this->value = value;
 }
 
-//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
 
 /**
  * Get status
@@ -214,10 +205,8 @@ void PotatoesDTO::setSymbol(std::string symbol)  {
 	this->symbol = symbol;
 }
 
-//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
-
 /**
- * Get terminated... by a cybernetic organism: living tissue, over metal endoskeleton
+ * I am a cybernetic organism: living tissue, over metal endoskeleton
  */
 std::string PotatoesDTO::getTerminated()  {
 	return this->terminated;
@@ -242,4 +231,3 @@ void PotatoesDTO::setDecimals(int decimals)  {
 	this->decimals = decimals;
 }
 
-//Cameron Wass, 040-626-741, wass0010@algonquinlive.com

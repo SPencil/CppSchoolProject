@@ -46,7 +46,7 @@
 
 /**
  * Abstract class which can be implemented by the model
- *///std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+ */
 class PotatoesDataClass  {
 	
 	public:
@@ -78,7 +78,7 @@ class PotatoesDataClass  {
 			//Unfortunately, the original dataset has all values in quotes and the API doesn't save
 			//values with surrounding quotes unless they have a space or a comma, so both need to be handled.
 			
-			//all values in quotes, all lines start with a " //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+			//all values in quotes, all lines start with a "
 			if(line[0] == '"')  {
 				for(int i = 0; i <= (int)strlen(line); i++)  {
 					if(line[i] == '\0')  { break; }
@@ -95,7 +95,6 @@ class PotatoesDataClass  {
 							continue;
 						}
 					}
-					//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
 					//while between quotes, push the character into it's respective string.
 					if(extract_char == true)  {
 						columns[current_column].push_back(line[i]);
@@ -117,7 +116,7 @@ class PotatoesDataClass  {
 					}
 					if(line[i] == '"' && inner_quote == true)  { 
 						inner_quote = false;
-						continue; //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+						continue; 
 					}
 					
 					//is this comma inside a quoted value
@@ -130,7 +129,6 @@ class PotatoesDataClass  {
 					columns[current_column].push_back(line[i]);
 					continue;
 					
-					 //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
 				}
 			}
 			
@@ -144,14 +142,14 @@ class PotatoesDataClass  {
 			tater->setScalarFactor( columns[6] );
 			tater->setScalarId( columns[7] );
 			tater->setVector( columns[8] );
-			tater->setCoordinate( std::stod(columns[9]) );//Cameron Wass, 040-626-741, wass0010@algonquinlive.com
+			tater->setCoordinate( std::stod(columns[9]) );
 			//Value is the only converted field that can be empty, which stod does not like.
 			try  {
 				tater->setValue( std::stod(columns[10]) );
 			}
 			catch(const std::invalid_argument& oops)  {
 				tater->setValue( 0.0 );
-			} //std::cout << "Cameron Wass, 040-626-741, wass0010@algonquinlive.com" << std::endl;
+			}
 			tater->setStatus( columns[11] );
 			tater->setSymbol( columns[12] );
 			tater->setTerminated( columns[13] );
